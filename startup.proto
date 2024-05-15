@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+service ROS2Control {
+    rpc Start (LaunchRequest) returns (LaunchResponse);
+    rpc Stop (Empty) returns (StopResponse);
+    rpc StreamLogs (Empty) returns (stream LogMessage);
+}
+
+message LaunchRequest {
+    string launch_file = 1;
+    string arguments = 2;
+}
+
+message LaunchResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message StopResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message LogMessage {
+    float timestamp = 1;
+    string log = 2;
+}
+
+message Empty {}
