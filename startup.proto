@@ -4,6 +4,7 @@ service ROS2Control {
     rpc Start (LaunchRequest) returns (LaunchResponse);
     rpc Stop (Empty) returns (StopResponse);
     rpc StreamLogs (Empty) returns (stream LogMessage);
+    rpc GetLaunchFileNames(Empty) returns (FileNameList);
 }
 
 message LaunchRequest {
@@ -24,6 +25,10 @@ message StopResponse {
 message LogMessage {
     float timestamp = 1;
     string log = 2;
+}
+
+message FileNameList {
+    repeated string names = 1;
 }
 
 message Empty {}

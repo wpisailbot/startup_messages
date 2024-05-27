@@ -33,6 +33,10 @@ class ROS2ControlClient extends $grpc.Client {
       '/ROS2Control/StreamLogs',
       ($0.Empty value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.LogMessage.fromBuffer(value));
+  static final _$getLaunchFileNames = $grpc.ClientMethod<$0.Empty, $0.FileNameList>(
+      '/ROS2Control/GetLaunchFileNames',
+      ($0.Empty value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.FileNameList.fromBuffer(value));
 
   ROS2ControlClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -50,6 +54,10 @@ class ROS2ControlClient extends $grpc.Client {
 
   $grpc.ResponseStream<$0.LogMessage> streamLogs($0.Empty request, {$grpc.CallOptions? options}) {
     return $createStreamingCall(_$streamLogs, $async.Stream.fromIterable([request]), options: options);
+  }
+
+  $grpc.ResponseFuture<$0.FileNameList> getLaunchFileNames($0.Empty request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getLaunchFileNames, request, options: options);
   }
 }
 
@@ -79,6 +87,13 @@ abstract class ROS2ControlServiceBase extends $grpc.Service {
         true,
         ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
         ($0.LogMessage value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Empty, $0.FileNameList>(
+        'GetLaunchFileNames',
+        getLaunchFileNames_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
+        ($0.FileNameList value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.LaunchResponse> start_Pre($grpc.ServiceCall call, $async.Future<$0.LaunchRequest> request) async {
@@ -93,7 +108,12 @@ abstract class ROS2ControlServiceBase extends $grpc.Service {
     yield* streamLogs(call, await request);
   }
 
+  $async.Future<$0.FileNameList> getLaunchFileNames_Pre($grpc.ServiceCall call, $async.Future<$0.Empty> request) async {
+    return getLaunchFileNames(call, await request);
+  }
+
   $async.Future<$0.LaunchResponse> start($grpc.ServiceCall call, $0.LaunchRequest request);
   $async.Future<$0.StopResponse> stop($grpc.ServiceCall call, $0.Empty request);
   $async.Stream<$0.LogMessage> streamLogs($grpc.ServiceCall call, $0.Empty request);
+  $async.Future<$0.FileNameList> getLaunchFileNames($grpc.ServiceCall call, $0.Empty request);
 }

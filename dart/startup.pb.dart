@@ -269,6 +269,50 @@ class LogMessage extends $pb.GeneratedMessage {
   void clearLog() => clearField(2);
 }
 
+class FileNameList extends $pb.GeneratedMessage {
+  factory FileNameList({
+    $core.Iterable<$core.String>? names,
+  }) {
+    final $result = create();
+    if (names != null) {
+      $result.names.addAll(names);
+    }
+    return $result;
+  }
+  FileNameList._() : super();
+  factory FileNameList.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory FileNameList.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FileNameList', createEmptyInstance: create)
+    ..pPS(1, _omitFieldNames ? '' : 'names')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  FileNameList clone() => FileNameList()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  FileNameList copyWith(void Function(FileNameList) updates) => super.copyWith((message) => updates(message as FileNameList)) as FileNameList;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static FileNameList create() => FileNameList._();
+  FileNameList createEmptyInstance() => create();
+  static $pb.PbList<FileNameList> createRepeated() => $pb.PbList<FileNameList>();
+  @$core.pragma('dart2js:noInline')
+  static FileNameList getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FileNameList>(create);
+  static FileNameList? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$core.String> get names => $_getList(0);
+}
+
 class Empty extends $pb.GeneratedMessage {
   factory Empty() => create();
   Empty._() : super();

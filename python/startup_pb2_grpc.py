@@ -54,6 +54,11 @@ class ROS2ControlStub(object):
                 request_serializer=startup__pb2.Empty.SerializeToString,
                 response_deserializer=startup__pb2.LogMessage.FromString,
                 _registered_method=True)
+        self.GetLaunchFileNames = channel.unary_unary(
+                '/ROS2Control/GetLaunchFileNames',
+                request_serializer=startup__pb2.Empty.SerializeToString,
+                response_deserializer=startup__pb2.FileNameList.FromString,
+                _registered_method=True)
 
 
 class ROS2ControlServicer(object):
@@ -77,6 +82,12 @@ class ROS2ControlServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetLaunchFileNames(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ROS2ControlServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -94,6 +105,11 @@ def add_ROS2ControlServicer_to_server(servicer, server):
                     servicer.StreamLogs,
                     request_deserializer=startup__pb2.Empty.FromString,
                     response_serializer=startup__pb2.LogMessage.SerializeToString,
+            ),
+            'GetLaunchFileNames': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetLaunchFileNames,
+                    request_deserializer=startup__pb2.Empty.FromString,
+                    response_serializer=startup__pb2.FileNameList.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -176,6 +192,33 @@ class ROS2Control(object):
             '/ROS2Control/StreamLogs',
             startup__pb2.Empty.SerializeToString,
             startup__pb2.LogMessage.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetLaunchFileNames(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/ROS2Control/GetLaunchFileNames',
+            startup__pb2.Empty.SerializeToString,
+            startup__pb2.FileNameList.FromString,
             options,
             channel_credentials,
             insecure,

@@ -69,6 +69,18 @@ final $typed_data.Uint8List logMessageDescriptor = $convert.base64Decode(
     'CgpMb2dNZXNzYWdlEhwKCXRpbWVzdGFtcBgBIAEoAlIJdGltZXN0YW1wEhAKA2xvZxgCIAEoCV'
     'IDbG9n');
 
+@$core.Deprecated('Use fileNameListDescriptor instead')
+const FileNameList$json = {
+  '1': 'FileNameList',
+  '2': [
+    {'1': 'names', '3': 1, '4': 3, '5': 9, '10': 'names'},
+  ],
+};
+
+/// Descriptor for `FileNameList`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List fileNameListDescriptor = $convert.base64Decode(
+    'CgxGaWxlTmFtZUxpc3QSFAoFbmFtZXMYASADKAlSBW5hbWVz');
+
 @$core.Deprecated('Use emptyDescriptor instead')
 const Empty$json = {
   '1': 'Empty',
