@@ -17,15 +17,16 @@ import 'dart:typed_data' as $typed_data;
 const LaunchRequest$json = {
   '1': 'LaunchRequest',
   '2': [
-    {'1': 'launch_file', '3': 1, '4': 1, '5': 9, '10': 'launchFile'},
-    {'1': 'arguments', '3': 2, '4': 1, '5': 9, '10': 'arguments'},
+    {'1': 'package', '3': 1, '4': 1, '5': 9, '10': 'package'},
+    {'1': 'launch_file', '3': 2, '4': 1, '5': 9, '10': 'launchFile'},
+    {'1': 'arguments', '3': 3, '4': 1, '5': 9, '10': 'arguments'},
   ],
 };
 
 /// Descriptor for `LaunchRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List launchRequestDescriptor = $convert.base64Decode(
-    'Cg1MYXVuY2hSZXF1ZXN0Eh8KC2xhdW5jaF9maWxlGAEgASgJUgpsYXVuY2hGaWxlEhwKCWFyZ3'
-    'VtZW50cxgCIAEoCVIJYXJndW1lbnRz');
+    'Cg1MYXVuY2hSZXF1ZXN0EhgKB3BhY2thZ2UYASABKAlSB3BhY2thZ2USHwoLbGF1bmNoX2ZpbG'
+    'UYAiABKAlSCmxhdW5jaEZpbGUSHAoJYXJndW1lbnRzGAMgASgJUglhcmd1bWVudHM=');
 
 @$core.Deprecated('Use launchResponseDescriptor instead')
 const LaunchResponse$json = {

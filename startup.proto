@@ -8,8 +8,9 @@ service ROS2Control {
 }
 
 message LaunchRequest {
-    string launch_file = 1;
-    string arguments = 2;
+    string package = 1;
+    string launch_file = 2;
+    string arguments = 3;
 }
 
 message LaunchResponse {

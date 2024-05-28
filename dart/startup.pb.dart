@@ -15,10 +15,14 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 class LaunchRequest extends $pb.GeneratedMessage {
   factory LaunchRequest({
+    $core.String? package,
     $core.String? launchFile,
     $core.String? arguments,
   }) {
     final $result = create();
+    if (package != null) {
+      $result.package = package;
+    }
     if (launchFile != null) {
       $result.launchFile = launchFile;
     }
@@ -32,8 +36,9 @@ class LaunchRequest extends $pb.GeneratedMessage {
   factory LaunchRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LaunchRequest', createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'launchFile')
-    ..aOS(2, _omitFieldNames ? '' : 'arguments')
+    ..aOS(1, _omitFieldNames ? '' : 'package')
+    ..aOS(2, _omitFieldNames ? '' : 'launchFile')
+    ..aOS(3, _omitFieldNames ? '' : 'arguments')
     ..hasRequiredFields = false
   ;
 
@@ -59,22 +64,31 @@ class LaunchRequest extends $pb.GeneratedMessage {
   static LaunchRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get launchFile => $_getSZ(0);
+  $core.String get package => $_getSZ(0);
   @$pb.TagNumber(1)
-  set launchFile($core.String v) { $_setString(0, v); }
+  set package($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasLaunchFile() => $_has(0);
+  $core.bool hasPackage() => $_has(0);
   @$pb.TagNumber(1)
-  void clearLaunchFile() => clearField(1);
+  void clearPackage() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get arguments => $_getSZ(1);
+  $core.String get launchFile => $_getSZ(1);
   @$pb.TagNumber(2)
-  set arguments($core.String v) { $_setString(1, v); }
+  set launchFile($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasArguments() => $_has(1);
+  $core.bool hasLaunchFile() => $_has(1);
   @$pb.TagNumber(2)
-  void clearArguments() => clearField(2);
+  void clearLaunchFile() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get arguments => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set arguments($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasArguments() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearArguments() => clearField(3);
 }
 
 class LaunchResponse extends $pb.GeneratedMessage {
